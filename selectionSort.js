@@ -16,6 +16,7 @@ function selectionSort(array) {
   let right = 1;
   let indexMin = 0;
 
+  //   one whileloop only
   while (left < array.length - 1) {
     if (array[right] < array[indexMin]) {
       indexMin = right;
