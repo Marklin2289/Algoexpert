@@ -35,11 +35,12 @@ function getNthFib(n) {
   } else if (n == 1) {
     return 0;
   } else {
+    console.log(`${n} = ${getNthFib(n - 1)} + ${getNthFib(n - 2)}`);
     return getNthFib(n - 1) + getNthFib(n - 2);
   }
 }
 
-let result = getNthFib(5);
+let result = getNthFib(6);
 console.log(result);
 
 // n = 5
