@@ -24,16 +24,21 @@ function binarySearch(array, target) {
   let left = 0;
   let right = array.length - 1;
   let mid;
-
+  console.log(array, target);
   while (left <= right) {
     mid = Math.floor((left + right) / 2); //4.5 => 4
-
+    console.log(`mid index = ${mid}`);
+    console.log(`mid value is : ${array[mid]}`);
     if (array[mid] == target) {
+      //   console.log(`if ${array[mid]} = ${target}`);
+      //   console.log(`${(array[mid] = target)}`);
       return mid;
     } else if (array[mid] > target) {
       right = mid - 1;
+      console.log(`right index changed to ${right}`);
     } else if (array[mid] < target) {
       left = mid + 1;
+      console.log(`left index changed to ${left}`);
     }
   }
   return -1;
