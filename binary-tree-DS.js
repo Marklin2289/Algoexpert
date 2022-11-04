@@ -47,3 +47,8 @@ c.right = f;
 //         b      c
 //       /   \     \
 //      d     e     f
+
+// depth-first-values:   a,b,d,e,c,f
+
+// breadth-first-values: a,b,c,d,e,f
+//
