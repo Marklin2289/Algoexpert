@@ -21,7 +21,6 @@
 //     this.left = null;
 //     this.right = null;
 //   }
-
 // }
 function branchSums(root, sum = 0, sums = []) {
   const currentSum = root.value + sum;
@@ -38,8 +37,6 @@ function branchSums(root, sum = 0, sums = []) {
   console.log(sums);
   return sums;
 }
-
-console.log(branchSums(a, (sum = 0), (sums = [])));
 
 //output = [15,16,18,10,11]
 
@@ -131,21 +128,41 @@ const c = new Node(3);
 const d = new Node(4);
 const e = new Node(5);
 const f = new Node(6);
+const g = new Node(7);
+const h = new Node(8);
+const i = new Node(9);
+const j = new Node(10);
 
 a.left = b;
 a.right = c;
 b.left = d;
 b.right = e;
-c.right = f;
-//            a
-//          /   \
-//         b     c
-//       /   \    \
-//      d     e    f
+c.left = f;
+c.right = g;
+d.left = h;
+d.right = i;
+e.left = j;
+//            1
+//        /      \
+//      2         3
+//     /   \     /  \
+//    4      5   6    7
+//   /   \   /
+// 8      9 10
+function branchSumRecursive(root) {
+  if (root === null) return 0;
+  return (
+    root.value + branchSumRecursive(root.left) + branchSumRecursive(root.right)
+  );
+}
+
+// console.log(branchSumRecursive(a));
+console.log(branchSums(a, (sum = 0), (sums = [])));
+
 // nodeDepths(a);
 // nodeDepthsRecursive(a);
 
-module.exports = { nodeDepths, branchSums };
+// module.exports = { nodeDepths, branchSums };
 
 // function nodeDepths(root) {
 //   return sumDepths(root, 0);
