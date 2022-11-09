@@ -33,10 +33,9 @@ const linkedListFind = (head, target) => {
 };
 
 const linkedListFindRecursive = (head, target) => {
-  let current = head;
-  if (current === null) return false;
-  if (current.val === target) return true;
-  return linkedListFindRecursive(current.next, target);
+  if (head === null) return false;
+  if (head.val === target) return true;
+  return linkedListFindRecursive(head.next, target);
 };
 console.log(linkedListFind(a, target));
 console.log(linkedListFindRecursive(a, target));
