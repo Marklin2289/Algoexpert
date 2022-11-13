@@ -2,10 +2,10 @@
 
 // console.log(Math.floor(9 / 2));
 
-let array = [1, 2, 3, 4, 5, 6];
-let result = array.push(7);
-console.log(result);
-console.log(array);
+// let array = [1, 2, 3, 4, 5, 6];
+// let result = array.push(7);
+// console.log(result);
+// console.log(array);
 
 // function nodeDepths(root) {
 //   let stack = [[root, 0]],
@@ -19,3 +19,8 @@ console.log(array);
 //   }
 //   return depths;
 // }
+
+let USDC = 1000000000000000000;
+let DAI = 1000000;
+
+console.log(DAI / USDC);
