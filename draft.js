@@ -20,7 +20,11 @@
 //   return depths;
 // }
 
-let USDC = 1000000000000000000;
-let DAI = 1000000;
+// let USDC = 1000000000000000000;
+// let DAI = 1000000;
 
-console.log(DAI / USDC);
+// console.log(DAI / USDC);
+
+let string = "acdfg";
+let result = string.sort((a, b) => a - b);
+console.log(result);
