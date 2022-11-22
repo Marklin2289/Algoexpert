@@ -25,6 +25,9 @@
 
 // console.log(DAI / USDC);
 
-let string = "acdfg";
-let result = string.sort((a, b) => a - b);
-console.log(result);
+let array = [12, 3, 1, 2, -6, 5, -8, 6];
+let newArr = array.sort((a, b) => a - b);
+for (const idx in newArr) {
+  //   console.log(idx);
+  console.log(newArr[idx + 1]);
+}

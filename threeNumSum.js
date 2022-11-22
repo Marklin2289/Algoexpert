@@ -13,3 +13,55 @@ let array = [12, 3, 1, 2, -6, 5, -8, 6];
 let targetSum = 0;
 
 //  output : [[-8, 2, 6], [-8, 3, 5], [-6, 1, 5]]
+
+function threeNumSum(array, targetSum) {
+  array.sort((a, b) => a - b);
+  console.log(array);
+}
+
+threeNumSum(array, targetSum);
+
+// sudo: 1
+// TargetSum = num1 + num2 + num3
+//TargetSum - num1 = num2 + num3
+//targetSum - num1 - num2 = num3
+
+const nums = {};
+for (const idx in array) {
+  let potentialMatch = targetSum - array[idx];
+  for (const num of array) {
+    // for (let j = 1; index < array.length -1; j++) {
+    const potentialMatch = array[1] + array[1 + j];
+
+    // }
+    //Potential match =  targetSum + i[0]
+    //Potential match =  num1 + num2
+    const potentialMatch = targetSum - num;
+    if (potentialMatch in nums) {
+      return [potentialMatch, num];
+    } else {
+      nums[num] = true;
+    }
+  }
+  return [];
+}
+
+//[-8,-6,1,2,3,5,6,12] => length = 8
+
+function threeNumSum(array, targetSum) {
+  array.sort((a, b) => a - b);
+  let idx1 = array.shift();
+
+  const nums = {};
+  for (const num of newArray) {
+    //Potential match =  targetSum + i[0]
+    //Potential match =  num1 + num2
+    const potentialMatch = targetSum - num;
+    if (potentialMatch in nums) {
+      return [potentialMatch, num];
+    } else {
+      nums[num] = true;
+    }
+  }
+  return [];
+}
