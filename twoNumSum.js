@@ -12,32 +12,66 @@
 // the target sum.
 
 // Sample Input
-array = [3, 5, -4, 8, 11, 1, -1, 6];
-targetSum = 10;
 // Output
 // [-1, 11];
 
 // ================================================================================
 
-function twoNumberSum(array, targetSum) {
-  for (let i = 0; i < array.length - 1; i++) {
-    const firstNum = array[i];
-    for (let j = i + 1; j < array.length; j++) {
-      const secondNum = array[j];
-      if (firstNum + secondNum === targetSum) {
-        console.log(firstNum, secondNum);
-        return [firstNum, secondNum];
-      }
-    }
-  }
-  return [];
-}
+// function twoNumberSum(array, targetSum) {
+//   for (let i = 0; i < array.length - 1; i++) {
+//     const firstNum = array[i];
+//     for (let j = i + 1; j < array.length; j++) {
+//       const secondNum = array[j];
+//       if (firstNum + secondNum === targetSum) {
+//         console.log(firstNum, secondNum);
+//         return [firstNum, secondNum];
+//       }
+//     }
+//   }
+//   return [];
+// }
 
-// Do not edit the line below.
-// exports.twoNumberSum = twoNumberSum;
-twoNumberSum();
-
-// for (let index = 0; index < array.length; index++) {
-//     const element = array[index];
+// // Do not edit the line below.
+// // exports.twoNumberSum = twoNumberSum;
+// twoNumberSum(array, targetSum);
+// function twoSum(array, targetSum) {
+// let numObj = {};
+// for (let i = 0; i < array.length; i++) {
+//   let complement = targetSum - array[i];
+//   if (numObj[complement] !== undefined) {
+//     return [numObj[complement], i];
+//   }
+//   numObj[array[i]] = i;
+// }
+// const numbers = {};
+// for (let item of array) {
+//   let potentialNum = targetSum - item;
+//   if (potentialNum in numbers) return [potentialNum, item];
+//   else numbers[item] = true;
+//   console.log(numbers);
+// }
+// return [];
 
 // }
+
+// console.log(twoSum(array, targetSum));
+let array = [2, 5, -4, 8, 11, 1, -1, 6];
+let targetSum = 10;
+
+let hashTwoSum = (array, targetSum) => {
+  let storageHash = {};
+  let nums = [];
+
+  for (let i in array) {
+    let addend = targetSum - array[i];
+
+    if (addend in storageHash) {
+      nums.push([addend, array[i]]);
+    }
+    storageHash[array[i]] = i;
+    console.log(storageHash);
+  }
+  return nums;
+};
+
+console.log(hashTwoSum(array, targetSum));
