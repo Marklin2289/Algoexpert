@@ -25,9 +25,14 @@
 
 // console.log(DAI / USDC);
 
-let array = [12, 3, 1, 2, -6, 5, -8, 6];
-let newArr = array.sort((a, b) => a - b);
-for (const idx in newArr) {
-  //   console.log(idx);
-  console.log(newArr[idx + 1]);
-}
+// let array = [12, 3, 1, 2, -6, 5, -8, 6];
+// let newArr = array.sort((a, b) => a - b);
+// for (const idx in newArr) {
+//   //   console.log(idx);
+//   console.log(newArr[idx]);
+// }
+
+console.log(`true  || false :${true || false}`);
+console.log(`false || true  :${false || true}`);
+console.log(`true  || true  :${true || true}`);
+console.log(`false || false :${false || false}`);
