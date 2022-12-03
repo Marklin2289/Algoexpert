@@ -9,7 +9,7 @@
 //                          t
 //                          i
 //                          j
-let array = [5, 1, 4, 2, 5, 5];
+let array = [5, 1, 4, 2];
 //output =  [8,40,10,20]
 
 // // loop {
