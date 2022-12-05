@@ -62,13 +62,6 @@
 //     updatedResultArrayI = array[i + 1];
 //   }
 // }
-// let array = [
-//   [9, 12], // 3
-//   [12, 54], //0 [9,54] =>45
-//   [43, 49], // 34
-//   [45, 90], // 36 [9,90]
-//   [91, 93],
-// ];
 
 // function mergeOverlappingIntervals(array) {
 //   let updatedResultArrayI = array[0];
@@ -102,69 +95,43 @@
 //   return result;
 // }
 
-// mergeOverlappingIntervalsSolution(array);
-
-// let array = [
-//     [9, 12], // 3
-//     [12, 54], //0 [9,54] =>45
-//     [43, 49], // 34
-//     [45, 90], // 36 [9,90]
-//     [91, 93],
-//   ];
-
-//Solution 1
-// function mergeOverlappingIntervals(array) {
-//   array.sort((a, b) => a[0] - b[0]);
-
-//   const mergedIntervals = [array[0]];
-//   let mergedIntervalPointer = 0;
-
-//   for (let index = 1; index < array.length; index++) {
-//     const [start, end] = mergedIntervals[mergedIntervalPointer];
-//     // const [start, end] = mergedIntervals;
-//     console.log(`1 : [${mergedIntervals[1]}]`);
-//     // console.log([start, end]);
-//     const [nextStart, nextEnd] = array[index];
-//     const isOverlapping = end >= nextStart;
-//     if (isOverlapping) {
-//       const biggerEnd = Math.max(end, nextEnd);
-//       mergedIntervals[mergedIntervalPointer] = [start, biggerEnd];
-//     } else {
-//       mergedIntervals.push(array[index]);
-//       console.log(`mergedIntervals.push : ${array[index]}`);
-//       console.log(`mergedIntervalPointer : ${mergedIntervalPointer}`);
-//       mergedIntervalPointer++;
-//       console.log(`mergedIntervalPointer : ${mergedIntervalPointer}`);
-//     }
-//   }
-//   console.log(`mergedIntervals[0] is ${mergedIntervals[0]}`);
-//   console.log(`mergedIntervals[1] is ${mergedIntervals[1]}`);
-//   return mergedIntervals;
-// }
-// console.log(mergeOverlappingIntervals(array));
-
 let array = [
-  [9, 12], // 3
-  [12, 54], //0 [9,54] =>45
-  [43, 49], // 34
-  [45, 90], // 36 [9,90]
-  [91, 93],
+  [1, 10],
+  [11, 20],
+  [21, 30],
+  [31, 40],
+  [41, 50],
+  [51, 60],
+  [61, 70],
+  [71, 80],
+  [81, 90],
+  [91, 100],
 ];
-// console.log(array[5]);
-function mergeOverlappingIntervalsSolutionTwo(array) {
+
+mergeOverlappingIntervals(array);
+
+//Solution
+function mergeOverlappingIntervals(array) {
   array.sort((a, b) => a[0] - b[0]);
-  let result = array[0];
-  let output = [];
-  for (let i = 1; i < array.length; i++) {
-    if (result[1] >= array[i][0]) {
-      result = [result[0], Math.max(result[1], array[i][1])];
+
+  const mergedIntervals = [array[0]];
+  //   console.log(mergedIntervals) => [[9,12]]
+  //   console.log(`mergedIntervals is : ${mergedIntervals}`);
+  let mergedIntervalPointer = 0;
+
+  for (let index = 1; index < array.length; index++) {
+    const [start, end] = mergedIntervals[mergedIntervalPointer];
+    console.log(mergedIntervals[mergedIntervalPointer]);
+    // console.log([start, end]); [[start : 9, end : 12]]
+    const [nextStart, nextEnd] = array[index];
+    const isOverlapping = end >= nextStart;
+    if (isOverlapping) {
+      const biggerEnd = Math.max(end, nextEnd);
+      mergedIntervals[mergedIntervalPointer] = [start, biggerEnd]; //=> [[9,54]] => [[9,90], [91,93]]
     } else {
-      output.push(result);
-      output.push(array[i]);
+      mergedIntervals.push(array[index]);
+      mergedIntervalPointer++;
     }
   }
-  console.log(output);
-  return output;
+  return mergedIntervals;
 }
-
-console.log(mergeOverlappingIntervalsSolutionTwo(array));
