@@ -111,30 +111,67 @@ d.left = g;
 //   return array;
 // }
 
-let array = [];
-function inOrderTraverse(tree, array) {
-  console.log(`tree.value is : ${tree.value ? tree.value : null} `);
-  if (!tree) return array;
-  inOrderTraverse(tree.left, array);
-  array.push(tree.value);
-  console.log(`array.push is ${array}`);
-  inOrderTraverse(tree.right, array);
-  return array;
-}
+// let array = [];
+// function inOrderTraverse(tree, array) {
+//   // console.log(`tree.value is : ${tree.value ? tree.value : null} `);
+//   if (!tree) return array;
+//   inOrderTraverse(tree.right, array);
+//   array.push(tree.value);
+//   console.log(`array.push is ${array}`);
+//   inOrderTraverse(tree.left, array);
+//   return array;
+// }
 
-function preOrderTraverse(tree, array) {
-  if (!tree) return array;
-  array.push(tree.value);
-  preOrderTraverse(tree.left, array);
-  preOrderTraverse(tree.right, array);
-  return array;
-}
+// function preOrderTraverse(tree, array) {
+//   if (!tree) return array;
+//   array.push(tree.value);
+//   preOrderTraverse(tree.left, array);
+//   preOrderTraverse(tree.right, array);
+//   return array;
+// }
 
-function postOrderTraverse(tree, array) {
-  if (!tree) return array;
-  postOrderTraverse(tree.left, array);
-  postOrderTraverse(tree.right, array);
-  array.push(tree.value);
-  return array;
+// function postOrderTraverse(tree, array) {
+//   if (!tree) return array;
+//   postOrderTraverse(tree.left, array);
+//   postOrderTraverse(tree.right, array);
+//   array.push(tree.value);
+//   return array;
+// }
+
+// function maxToMinPrint(tree, k, array) {
+//   if (!tree) return array;
+//   maxToMinPrint(tree.right, k, array);
+//   array.push(tree.value);
+//   console.log(`array.push is ${array}`);
+//   maxToMinPrint(tree.left, k, array);
+//   return array[k - 1] ? array[k - 1] : -1;
+// }
+
+function findKthLargestValueInBst(tree, k) {
+  let kthLargestValue = null;
+
+  function findLargestValueHelper(tree) {
+    //22
+    if (!tree) return;
+    // 15 : 20(5) => 20:22(17)=>22: null null
+    findLargestValueHelper(tree.right); //22
+    if (k === 0) return kthLargestValue;
+    kthLargestValue = tree.value; //22 :2 => 20 :1 => 17
+    // console.log(kthLargestValue);
+    k--; // 3 => 2 => 1 =>
+    // console.log(k);
+    findLargestValueHelper(tree.left);
+  }
+  console.log(
+    `helper call tree.value :"  ${tree.value} : ${findLargestValueHelper(tree)}`
+  );
+  console.log(`kthLargestValue is : ${kthLargestValue}`);
+  return kthLargestValue;
 }
-inOrderTraverse(a, array);
+// inOrderTraverse(a, array);
+// console.log(maxToMinPrint(a, 3, array));
+console.log(`final result : ${findKthLargestValueInBst(a, 3)}`);
+
+// 15 : 5, 20
+// 20 : 17, 22
+// 22
