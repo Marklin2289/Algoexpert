@@ -85,13 +85,19 @@ const d = new Node(2);
 const e = new Node(5);
 const f = new Node(22);
 const g = new Node(1);
+const h = new Node(23);
+const i = new Node(19);
+const j = new Node(14);
 
 a.left = b;
 a.right = c;
 b.left = d;
 b.right = e;
+c.left = j;
 c.right = f;
 d.left = g;
+f.right = h;
+f.left = i;
 
 //            a
 //          /   \
@@ -110,68 +116,48 @@ d.left = g;
 //   console.log(array);
 //   return array;
 // }
+let node = 2;
+let array = [];
+function inOrderTraverse(tree, array) {
+  if (!tree) return array;
+  console.log(inOrderTraverse(tree.left, array));
+  array.push(tree.value);
+  console.log(inOrderTraverse(tree.right, array));
+  return array;
+}
+//InOrderTraversal
+function findSuccessor(tree, node) {
+  let successor = null;
+  let found = false;
 
-// let array = [];
-// function inOrderTraverse(tree, array) {
-//   // console.log(`tree.value is : ${tree.value ? tree.value : null} `);
-//   if (!tree) return array;
-//   inOrderTraverse(tree.right, array);
-//   array.push(tree.value);
-//   console.log(`array.push is ${array}`);
-//   inOrderTraverse(tree.left, array);
-//   return array;
-// }
-
-// function preOrderTraverse(tree, array) {
-//   if (!tree) return array;
-//   array.push(tree.value);
-//   preOrderTraverse(tree.left, array);
-//   preOrderTraverse(tree.right, array);
-//   return array;
-// }
-
-// function postOrderTraverse(tree, array) {
-//   if (!tree) return array;
-//   postOrderTraverse(tree.left, array);
-//   postOrderTraverse(tree.right, array);
-//   array.push(tree.value);
-//   return array;
-// }
-
-// function maxToMinPrint(tree, k, array) {
-//   if (!tree) return array;
-//   maxToMinPrint(tree.right, k, array);
-//   array.push(tree.value);
-//   console.log(`array.push is ${array}`);
-//   maxToMinPrint(tree.left, k, array);
-//   return array[k - 1] ? array[k - 1] : -1;
-// }
-
-function findKthLargestValueInBst(tree, k) {
-  let kthLargestValue = null;
-
-  function findLargestValueHelper(tree) {
-    //22
-    if (!tree) return;
-    // 15 : 20(5) => 20:22(17)=>22: null null
-    findLargestValueHelper(tree.right); //22
-    if (k === 0) return kthLargestValue;
-    kthLargestValue = tree.value; //22 :2 => 20 :1 => 17
-    // console.log(kthLargestValue);
-    k--; // 3 => 2 => 1 =>
-    // console.log(k);
-    findLargestValueHelper(tree.left);
+  function inOrderTraverse(tree) {
+    if (tree.left) inOrderTraverse(tree.left);
+    if (found) {
+      successor = tree;
+      console.log(successor);
+      found = false;
+    }
+    if (tree === node) found = true;
+    if (tree.right) inOrderTraverse(tree.right);
   }
-  console.log(
-    `helper call tree.value :"  ${tree.value} : ${findLargestValueHelper(tree)}`
-  );
-  console.log(`kthLargestValue is : ${kthLargestValue}`);
-  return kthLargestValue;
+  inOrderTraverse(tree);
+  return successor;
+}
+
+function preOrderTraverse(tree, array) {
+  if (!tree) return array;
+  array.push(tree.value);
+  preOrderTraverse(tree.left, array);
+  preOrderTraverse(tree.right, array);
+  return array;
+}
+
+function postOrderTraverse(tree, array) {
+  if (!tree) return array;
+  postOrderTraverse(tree.left, array);
+  postOrderTraverse(tree.right, array);
+  array.push(tree.value);
+  return array;
 }
 // inOrderTraverse(a, array);
-// console.log(maxToMinPrint(a, 3, array));
-console.log(`final result : ${findKthLargestValueInBst(a, 3)}`);
-
-// 15 : 5, 20
-// 20 : 17, 22
-// 22
+console.log(findSuccessor(a, node));
