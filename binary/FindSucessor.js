@@ -29,7 +29,7 @@ class BinaryTree {
   }
 }
 
-function findSuccessor(tree, node, next) {
+function findSuccessor(tree, node, next, rootValue) {
   if (tree == null) return (next = tree);
 
   findSuccessor(tree.left, node, tree);

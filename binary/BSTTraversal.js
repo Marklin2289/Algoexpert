@@ -78,16 +78,16 @@ class Node {
   }
 }
 
-const a = new Node(10);
-const b = new Node(5);
-const c = new Node(15);
-const d = new Node(2);
+const a = new Node(1);
+const b = new Node(2);
+const c = new Node(3);
+const d = new Node(4);
 const e = new Node(5);
-const f = new Node(22);
-const g = new Node(1);
-const h = new Node(23);
-const i = new Node(19);
-const j = new Node(14);
+const f = new Node(6);
+const g = new Node(7);
+const h = new Node(8);
+// const i = new Node(19);
+// const j = new Node(14);
 
 a.left = b;
 a.right = c;
@@ -95,17 +95,16 @@ b.left = d;
 b.right = e;
 c.left = j;
 c.right = f;
-d.left = g;
-f.right = h;
-f.left = i;
+e.left = g;
+e.right = h;
 
 //            a
 //          /   \
 //         b     c
 //       /   \    \
 //      d     e    f
-//     /
-//    g
+//           / \
+//          g   h
 //Preorder
 // function test(root) {
 //   let array = [];
