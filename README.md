@@ -8,6 +8,8 @@
 - f(n) could be constant (f(n) = 1)
 - f(n) could be something entirely different
 
+  _ Big O Shorthands _
+
 1. Arithmetic operations are constant
 2. Variable assignments are constant
 3. Accessing elements in an array(by index) or object(by key) is constant
