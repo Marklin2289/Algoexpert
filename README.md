@@ -36,4 +36,8 @@ _ Logarithms Complexity _ (example: O(log(n)))
 
 we'll omit the 2 ==> log === log_2
 
+- Certain searching algorithms have logarithmic time complexity
+- Efficient sorting algorithms involve logarithms
+- Recursion sometimes involves logarithmic time complexity
+
 ![My_Image](Logarithmic-time-complexity-blog-1.jpeg)
