@@ -21,3 +21,9 @@
 _ Space Complexity _
 
 - how much additional memory do we need to allocate in order to run the code in algorithm
+
+* Most primitives(boolean, number, undefined, null) are constant space
+* Strings require 0(n) space(where n is string length)
+* References types are generally O(n), where n is the length(for arrays) or the number of keys(for objects)
+
+![My_Image](spaceComplexity.png)
