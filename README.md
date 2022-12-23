@@ -27,3 +27,13 @@ _ Space Complexity _
 * References types are generally O(n), where n is the length(for arrays) or the number of keys(for objects)
 
 ![My_Image](spaceComplexity.png)
+
+_ Logarithms Complexity _ (example: O(log(n)))
+
+- examples :
+  - log_2(8) = 3 ===> 2^3 = 8
+  - log_2(value) = exponent ====> 2^exponent = value
+
+we'll omit the 2 ==> log === log_2
+
+![My_Image](Logarithmic-time-complexity-blog-1.jpeg)
