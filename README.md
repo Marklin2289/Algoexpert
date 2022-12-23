@@ -17,3 +17,7 @@
    of whatever happens inside of the loop
 
 ![My_Image](./bigO.jpeg)
+
+_ Space Complexity _
+
+- how much additional memory do we need to allocate in order to run the code in algorithm
