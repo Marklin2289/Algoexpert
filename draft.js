@@ -39,3 +39,5 @@
 
 let preOrderTraversalValues = [10, 4, 2, 1, 5, 17, 19, 18];
 console.log(preOrderTraversalValues.filter((v) => v < 10));
+
+// testing
