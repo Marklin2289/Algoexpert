@@ -12,9 +12,10 @@ function maxSubarraySum(array, num) {
     tempSum = tempSum + array[i] - array[i - num];
     if (tempSum > maxSum) {
       maxSum = tempSum;
-    } else {
-      maxSum = maxSum;
     }
+    // else {
+    //   maxSum = maxSum;
+    // }
   }
   console.log(maxSum);
   return maxSum;
