@@ -20,4 +20,4 @@ function maxSubarraySum(array, num) {
   return maxSum;
 }
 // this is SLIDING WINDOW
-maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 4); // 10
+maxSubarraySum([1, 2, 5, 2, 8, 1, 5], 2); // 10
