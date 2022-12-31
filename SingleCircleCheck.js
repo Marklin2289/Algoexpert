@@ -33,34 +33,34 @@
 
 //Solution 1
 
-// function hasSingleCycle(array) {
-//   let hash = {};
-//   for (let index in array) {
-//     hash[index] = false;
-//   }
-//   //   console.log(Object.entries(hash));
-//   for (let i = 0; i < array.length; i++) {
-//     let index = array[i] + i; // - 1, -7  => abs 1
+function hasSingleCycle(array) {
+  let hash = {};
+  for (let index in array) {
+    hash[index] = false;
+  }
+  //   console.log(Object.entries(hash));
+  for (let i = 0; i < array.length; i++) {
+    let index = array[i] + i; // - 1, -7  => abs 1
 
-//     if (array[i] == 0 || array[index] + array[i] == 0) return false;
+    if (array[i] == 0 || array[index] + array[i] == 0) return false;
 
-//     if (index > 0 && index > array.length) {
-//       index = index % array.length; // 8%6 = 2 = array[2]
-//     } else if (index < 0 && Math.abs(index) < array.length) {
-//       index = array.length - Math.abs(index);
-//     } else if (index < 0 && Math.abs(index) > array.length) {
-//       index = array.length - Math.abs(index % array.length);
-//     }
+    if (index > 0 && index > array.length) {
+      index = index % array.length; // 8%6 = 2 = array[2]
+    } else if (index < 0 && Math.abs(index) < array.length) {
+      index = array.length - Math.abs(index);
+    } else if (index < 0 && Math.abs(index) > array.length) {
+      index = array.length - Math.abs(index % array.length);
+    }
 
-//     if (hash[index] == false) {
-//       hash[index] = true;
-//     } else if (hash[index] == true) {
-//       return false;
-//     }
-//   }
-//   console.log(Object.entries(hash));
-//   return true;
-// }
+    if (hash[index] == false) {
+      hash[index] = true;
+    } else if (hash[index] == true) {
+      return false;
+    }
+  }
+  console.log(Object.entries(hash));
+  return true;
+}
 
 // // let i = 0;
 // // while (i > 0) {
@@ -138,7 +138,6 @@ function hasSingleCycle(array) {
     }
   }
   return true;
-  console.log(Object.entries(hash));
 }
 
 console.log(hasSingleCycle(array));
