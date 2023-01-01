@@ -33,34 +33,34 @@
 
 //Solution 1
 
-function hasSingleCycle(array) {
-  let hash = {};
-  for (let index in array) {
-    hash[index] = false;
-  }
-  //   console.log(Object.entries(hash));
-  for (let i = 0; i < array.length; i++) {
-    let index = array[i] + i; // - 1, -7  => abs 1
+// function hasSingleCycle(array) {
+//   let hash = {};
+//   for (let index in array) {
+//     hash[index] = false;
+//   }
+//   //   console.log(Object.entries(hash));
+//   for (let i = 0; i < array.length; i++) {
+//     let index = array[i] + i; // - 1, -7  => abs 1
 
-    if (array[i] == 0 || array[index] + array[i] == 0) return false;
+//     if (array[i] == 0 || array[index] + array[i] == 0) return false;
 
-    if (index > 0 && index > array.length) {
-      index = index % array.length; // 8%6 = 2 = array[2]
-    } else if (index < 0 && Math.abs(index) < array.length) {
-      index = array.length - Math.abs(index);
-    } else if (index < 0 && Math.abs(index) > array.length) {
-      index = array.length - Math.abs(index % array.length);
-    }
+//     if (index > 0 && index > array.length) {
+//       index = index % array.length; // 8%6 = 2 = array[2]
+//     } else if (index < 0 && Math.abs(index) < array.length) {
+//       index = array.length - Math.abs(index);
+//     } else if (index < 0 && Math.abs(index) > array.length) {
+//       index = array.length - Math.abs(index % array.length);
+//     }
 
-    if (hash[index] == false) {
-      hash[index] = true;
-    } else if (hash[index] == true) {
-      return false;
-    }
-  }
-  console.log(Object.entries(hash));
-  return true;
-}
+//     if (hash[index] == false) {
+//       hash[index] = true;
+//     } else if (hash[index] == true) {
+//       return false;
+//     }
+//   }
+//   console.log(Object.entries(hash));
+//   return true;
+// }
 
 // // let i = 0;
 // // while (i > 0) {
@@ -76,32 +76,32 @@ function hasSingleCycle(array) {
 // console.log(hasSingleCycle(array));
 
 // //Solution 2
-// function hasSingleCycle(array) {
-//   let p = 0;
-//   while (array[p] !== null) {
-//     const index = p;
-//     p = nextPosition(index, array);
-//     array[index] = null;
-//   }
-//   return p === 0 && !array.some((n) => n !== null);
-// }
+function hasSingleCycle(array) {
+  let p = 0;
+  while (array[p] !== null) {
+    const index = p;
+    p = nextPosition(index, array);
+    array[index] = null;
+  }
+  return p === 0 && !array.some((n) => n !== null);
+}
 
-// function nextPosition(p, array) {
-//   const nextPos = (p + array[p]) % array.length;
-//   return nextPos >= 0 ? nextPos : array.length + nextPos;
-// }
+function nextPosition(p, array) {
+  const nextPos = (p + array[p]) % array.length;
+  return nextPos >= 0 ? nextPos : array.length + nextPos;
+}
 
-// //Solution
-// function hasSingleCycle(array) {
-//   let elementsVisited = 0;
-//   let currentIdx = 0;
-//   while (elementsVisited < array.length) {
-//     if (elementsVisited > 0 && currentIdx === 0) return false;
-//     elementsVisited++;
-//     currentIdx = getNextIdx(currentIdx, array);
-//   }
-//   return currentIdx === 0;
-// }
+//Solution
+function hasSingleCycle(array) {
+  let elementsVisited = 0;
+  let currentIdx = 0;
+  while (elementsVisited < array.length) {
+    if (elementsVisited > 0 && currentIdx === 0) return false;
+    elementsVisited++;
+    currentIdx = getNextIdx(currentIdx, array);
+  }
+  return currentIdx === 0;
+}
 
 // function getNextIdx(currentIdx, array) {
 //   const jump = array[currentIdx];

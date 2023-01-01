@@ -41,4 +41,10 @@
 // console.log(preOrderTraversalValues.filter((v) => v < 10));
 
 // testing
-console.log("str2".charAt(0));
+let number = [1, 2, 3];
+let array = [];
+for (const num of number) {
+  array.push(num);
+}
+console.log(array);
+return array;
