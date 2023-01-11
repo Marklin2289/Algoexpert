@@ -52,3 +52,36 @@ function taskAssignment(tasks) {
 }
 
 taskAssignment(tasks);
+
+// ❯ node TaskAssignments.js
+// [
+//   [ '0', { value: 1, index: 0 } ],
+//   [ '1', { value: 3, index: 1 } ],
+//   [ '2', { value: 5, index: 2 } ],
+//   [ '3', { value: 3, index: 3 } ],
+//   [ '4', { value: 1, index: 4 } ],
+//   [ '5', { value: 4, index: 5 } ]
+// ]
+// formatting...
+// [
+//   [ '0', { value: 1, index: 0 } ],
+//   [ '1', { value: 1, index: 4 } ],
+//   [ '2', { value: 3, index: 1 } ],
+//   [ '3', { value: 3, index: 3 } ],
+//   [ '4', { value: 4, index: 5 } ],
+//   [ '5', { value: 5, index: 2 } ]
+// ]
+// start: 0, end: 5
+// res is : 0,2
+// start ++ => 1
+// end -- => 4
+// start: 1, end: 4
+// res is : 0,2,4,5
+// start ++ => 2
+// end -- => 3
+// start: 2, end: 3
+// res is : 0,2,4,5,1,3
+// start ++ => 3
+// end -- => 2
+// result is :
+// [ [ 0, 2 ], [ 4, 5 ], [ 1, 3 ] ]
