@@ -31,15 +31,22 @@ function taskAssignment(tasks) {
   const formattedTasks = tasks.map((value, index) => ({ value, index }));
   console.log(Object.entries(formattedTasks));
   formattedTasks.sort((a, b) => a.value - b.value);
+  console.log("formatting...");
+  console.log(Object.entries(formattedTasks));
 
   const res = [];
   let start = 0;
   let end = formattedTasks.length - 1;
   while (start < end) {
+    console.log(`start: ${start}, end: ${end}`);
     res.push([formattedTasks[start].index, formattedTasks[end].index]);
+    console.log(`res is : ${res}`);
     start++;
+    console.log("start ++ => " + start);
     end--;
+    console.log("end -- => " + end);
   }
+  console.log("result is : ");
   console.log(res);
   return res;
 }
