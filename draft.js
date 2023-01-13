@@ -48,5 +48,7 @@
 // }
 // console.log(array);
 // return array;
-console.log(0 == false);
-console.log(0 == true);
+// console.log(0 == false);
+// console.log(0 == true);
+let test = new String("abc");
+console.log(test);

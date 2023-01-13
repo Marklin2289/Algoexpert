@@ -94,4 +94,4 @@ function validStartingCity(distances, fuel, mpg) {
   }
   return candidateStartingCity;
 }
-validStartingCity(distances, fuel, mpg);
+console.log(validStartingCity(distances, fuel, mpg));
