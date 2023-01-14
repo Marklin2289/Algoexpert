@@ -92,3 +92,61 @@ class MinHeap {
 }
 let testCase = new MinHeap(array);
 console.log(testCase);
+
+// ==================================================================
+// Array Representation
+
+// heap array [null , 48, 12, 24, 7, 8, -5, 24, 391, 24, 56, 2, 6, 8, 41]
+// index      [ 0   , 1 , 2 , 3 , 4 ,5 , 6,  7,  8,   9, 10, 11,12,13,14]
+
+// left child :  i*2
+// right child : i*2 + 1
+// parent:       i/2
+
+let MinHeap = function () {
+  let heap = [null]; // heap array = [null]
+
+  this.insert = function (num) {
+    heap.push(num); // heap array = [null, num]
+    if (heap.length > 2) {
+      // more than 2 elements in heap array [null, num, moreNum]
+      let idx = heap.length - 1; // idx = last element in heap array
+      while (heap[idx] < heap[Math.floor(idx / 2)]) {
+        // last element < parent element
+        if (idx >= 1) {
+          [
+            ([heap[Math.floor(idx / 2)], heap[idx]] = [
+              heap[idx],
+              heap[Math.floor(idx / 2)],
+            ]), // swap
+          ];
+          if (Math.floor(idx / 2) > 1) {
+            // 1 is the root node in the array,
+            // parent node > root node then update its parents node index
+            idx = Math.floor(idx / 2);
+          } else {
+            // if parent node <= 1 means reached the root node already, then break
+            break;
+          }
+        }
+      }
+    }
+  };
+  this.remove = function () {
+    let smallest = heap[1];
+    if (heap.length > 2) {
+      heap[1] = heap[heap.length - 1];
+      heap.splice(heap.length - 1);
+      if (heap.length == 3) {
+        if (heap[1] > heap[2]) {
+          [heap[1], heap[2]] = [heap[2], heap[1]];
+        }
+        return smallest;
+      }
+      let i = 1;
+      let left = 2 * i;
+      let right = 2 * i + 1;
+      while (heap[i] >= heap[left] || heap[i] >= heap[right]) {}
+    }
+  };
+};
