@@ -194,7 +194,7 @@ console.log(valHead);
 // console.log(Object.entries(valHead.head));
 
 function printDoublyLinkedList(root) {
-  let current = root;
+  let current = root.head;
   if (current === null) {
     console.log("empty root");
     return;
@@ -206,6 +206,7 @@ function printDoublyLinkedList(root) {
     index++;
     console.log("next node is " + current.value + " index is " + index);
   }
+  console.log(`total index is ${index}`);
   return index;
 }
-printDoublyLinkedList(valHead.head);
+printDoublyLinkedList(valHead);
