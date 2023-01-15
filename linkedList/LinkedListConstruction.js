@@ -30,6 +30,7 @@
 //   prev node and a next node, both of which can point
 //   to either another node or None/null.
 class Node {
+  //linked List
   //node(a),node(b)
   constructor(value) {
     this.value = value; //[[prev][value][next]] [[prev][value][next]]
@@ -48,11 +49,13 @@ class DoublyLinkedList {
 
   setHead(node) {
     if (this.head == null) {
+      // if empty, node will be this.head and this.tail
       this.head = node;
       this.tail = node;
       return;
-    }
+    } // else, run this.insertBefore(this.head, node)
     this.insertBefore(this.head, node);
+    // before this.head, insert node to be the head
   }
 
   setTail(node) {
@@ -64,8 +67,10 @@ class DoublyLinkedList {
   }
 
   insertBefore(node, nodeToInsert) {
-    // node(c), node(b)
+    // before node, insert nodeToInsert
     if (nodeToInsert == this.head && nodeToInsert == this.tail) {
+      //if nodeToInsert is head or tail
+
       return;
     }
     this.remove(nodeToInsert);
@@ -153,3 +158,39 @@ class DoublyLinkedList {
     node.next = null;
   }
 }
+
+let valOne = new Node(1);
+let valTwo = new Node(2);
+let valThree = new Node(3);
+let valFour = new Node(4);
+let valFive = new Node(5);
+let valSix = new Node(6);
+let valTail = new Node(4);
+let valTest = new Node(4);
+let valHead = new DoublyLinkedList(valOne, valTwo);
+valHead.setHead(valOne);
+valHead.setTail(valTwo);
+valHead.insertAfter(valOne, valThree);
+valHead.insertBefore(valOne, valFour);
+valHead.insertBefore(valTwo, valFive);
+valHead.insertAfter(valFive, valSix);
+valHead.setTail(valTail);
+valHead.insertBefore(valTail, valTest);
+
+// valHead.insertAfter(valTwo, valThree);
+console.log(valHead);
+// console.log(Object.entries(valHead.head));
+
+function printDoublyLinkedList(root) {
+  let current = root;
+  console.log("current is " + current.value);
+  let index = 1;
+  while (current.next != null) {
+    current = current.next;
+    index++;
+    console.log(current.value);
+  }
+  console.log("index is " + index);
+  return index;
+}
+printDoublyLinkedList(valHead.head);
