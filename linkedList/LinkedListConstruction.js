@@ -195,14 +195,17 @@ console.log(valHead);
 
 function printDoublyLinkedList(root) {
   let current = root;
-  console.log("first node is  " + current.value);
+  if (current === null) {
+    console.log("empty root");
+    return;
+  }
   let index = 1;
+  console.log("first node is  " + current.value + " index is " + index);
   while (current.next != null) {
     current = current.next;
     index++;
-    console.log(current.value);
+    console.log("next node is " + current.value + " index is " + index);
   }
-  console.log("index is " + index);
   return index;
 }
 printDoublyLinkedList(valHead.head);
