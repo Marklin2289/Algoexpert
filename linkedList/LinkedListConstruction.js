@@ -175,18 +175,19 @@ let valSix = new Node(6);
 let valTail = new Node(4);
 let valTest = new Node(4);
 let valSeven = new Node(7);
-let valHead = new DoublyLinkedList(valOne, valTwo);
+let valHead = new DoublyLinkedList();
 valHead.setHead(valOne);
-valHead.setTail(valTwo);
-valHead.insertAfter(valOne, valThree);
-valHead.insertBefore(valOne, valFour);
-valHead.insertBefore(valTwo, valFive);
-valHead.insertAfter(valFive, valSix);
-valHead.setTail(valTail);
-valHead.insertBefore(valTail, valTest);
-valHead.insertAtPosition(8, valSeven);
-valHead.containsNodeWithValue(4); //true
-valHead.containsNodeWithValue(8); //false
+valHead.setTail(valTwo); //************************{1,2}
+valHead.insertAfter(valOne, valThree); //**********{1,3,2}
+valHead.insertBefore(valOne, valFour); //**********{4,1,3,2}
+valHead.insertBefore(valTwo, valFive); //**********{4,1,3,5,2}
+valHead.insertAfter(valFive, valSix); //***********{4,1,3,5,6,2}
+valHead.setTail(valTail); //value: 4 **************{4,1,3,5,6,2,4}
+valHead.insertBefore(valTail, valTest); //value: 4 {4,1,3,5,6,2,4,4}
+valHead.insertAtPosition(8, valSeven); //**********{4,1,3,5,6,2,4,7,4}
+valHead.setTail(valOne); //************************{4,3,5,6,2,4,7,4,1}
+valHead.containsNodeWithValue(4); //node !== null is :true
+valHead.containsNodeWithValue(8); //node !== null is :false
 
 // valHead.insertAfter(valTwo, valThree);
 console.log(valHead);
