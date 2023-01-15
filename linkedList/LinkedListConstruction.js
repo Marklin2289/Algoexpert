@@ -69,17 +69,18 @@ class DoublyLinkedList {
   insertBefore(node, nodeToInsert) {
     // before node, insert nodeToInsert
     if (nodeToInsert == this.head && nodeToInsert == this.tail) {
-      //if nodeToInsert is head or tail
-
+      //if nodeToInsert is head and tail
       return;
     }
-    this.remove(nodeToInsert);
+    this.remove(nodeToInsert); // remove prev and next pointers
 
-    nodeToInsert.prev = node.prev;
-    nodeToInsert.next = node;
+    nodeToInsert.prev = node.prev; // set pointer prev equal to node.prev
+    nodeToInsert.next = node; // set pointer next equal to node
     if (node.prev == null) {
-      this.head = nodeToInsert;
+      // if node.prev == null means node is head
+      this.head = nodeToInsert; // set nodeToInsert to be head
     } else node.prev.next = nodeToInsert;
+    // otherwise set nodeToInsert to be node.prev.next
 
     node.prev = nodeToInsert;
   }
@@ -105,15 +106,18 @@ class DoublyLinkedList {
       this.setHead(nodeToInsert);
       return;
     }
-    let node = this.head;
-    let currentPosition = 1;
+    let node = this.head; // define node = this.head for while loop later
+    let currentPosition = 1; // current index starts at 1
     while (node !== null && currentPosition !== position) {
       node = node.next;
       currentPosition++;
-    }
+    } // while loop stops when position reaches
     if (node !== null) {
-      this.insertBefore(node, nodeToInsert);
+      // if position is no at after this.tail which is not null
+      this.insertBefore(node, nodeToInsert); // run this.insertBefore()
+      // param are (node, nodeToInsert)
     } else {
+      // else position is after this.tail and set nodeToInsert to be this.tail
       this.setTail(nodeToInsert);
     }
   }
@@ -144,6 +148,7 @@ class DoublyLinkedList {
     while (node !== null && node.value !== value) {
       node = node.next;
     }
+    console.log(`node !== null is :${node !== null}`);
     return node !== null;
   }
 
@@ -155,7 +160,9 @@ class DoublyLinkedList {
       node.next.prev = node.prev;
     }
     node.prev = null;
+    // console.log(`disconnect ${node.value}.prev`);
     node.next = null;
+    // console.log(`disconnect ${node.value}.next`);
   }
 }
 
@@ -167,6 +174,7 @@ let valFive = new Node(5);
 let valSix = new Node(6);
 let valTail = new Node(4);
 let valTest = new Node(4);
+let valSeven = new Node(7);
 let valHead = new DoublyLinkedList(valOne, valTwo);
 valHead.setHead(valOne);
 valHead.setTail(valTwo);
@@ -176,6 +184,9 @@ valHead.insertBefore(valTwo, valFive);
 valHead.insertAfter(valFive, valSix);
 valHead.setTail(valTail);
 valHead.insertBefore(valTail, valTest);
+valHead.insertAtPosition(8, valSeven);
+valHead.containsNodeWithValue(4); //true
+valHead.containsNodeWithValue(8); //false
 
 // valHead.insertAfter(valTwo, valThree);
 console.log(valHead);
@@ -183,7 +194,7 @@ console.log(valHead);
 
 function printDoublyLinkedList(root) {
   let current = root;
-  console.log("current is " + current.value);
+  console.log("first node is  " + current.value);
   let index = 1;
   while (current.next != null) {
     current = current.next;
