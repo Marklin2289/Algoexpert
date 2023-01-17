@@ -121,4 +121,20 @@ class LinkedList {
     }
     return -1; // if no matched, return -1
   }
+
+  //finds the index of element
+  indexOf(element) {
+    let curr = this.head;
+    let count = 0;
+
+    while (current != null) {
+      //check if matched
+      if (current.element === element) {
+        return count; //get count which is index
+      }
+      count++; //else {}
+      current = current.next;
+    }
+    return -1; // if no matched, return -1
+  }
 }
