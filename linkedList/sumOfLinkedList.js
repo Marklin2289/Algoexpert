@@ -18,8 +18,6 @@
 let linkedListOne = 2 -> 4 -> 7 -> 1
 let linkedListTwo = 9 -> 4 -> 5
 
-1742
-0549
 
 class LinkedList {
     constructor(value) {
