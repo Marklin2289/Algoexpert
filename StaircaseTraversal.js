@@ -9,9 +9,6 @@
 
 // Note that maxSteps &lt;= height will always be true.
 
-let height = 4;
-let maxSteps = 2;
-
 //Break down problem into graph (dynamic programming)
 //2 ways to solve: Top-down approach or bottom-up approach
 //Break into sub problems until all values are 0 or 1 (meaning theres only 1 way)
@@ -20,53 +17,55 @@ let maxSteps = 2;
 
 //O(n) time O(n)space
 
-function staircaseTraversal(height, maxSteps) {
-  let currentNumberOfWays = 0;
-  const waysToTop = [1];
+// function staircaseTraversal(height, maxSteps) {
+//   let currentNumberOfWays = 0;
+//   const waysToTop = [1];
 
-  for (let currentHeight = 1; currentHeight < height + 1; currentHeight++) {
-    const startOfWindow = currentHeight - maxSteps - 1;
-    console.log(`startOfWindow : ${startOfWindow}`);
-    const endOfWindow = currentHeight - 1;
-    console.log(`endOfWindow : ${endOfWindow}`);
-    if (startOfWindow >= 0) {
-      console.log(`startOfWindow >=0`);
-      currentNumberOfWays -= waysToTop[startOfWindow];
-    }
-    console.log(`startOfWindow < 0`);
-    currentNumberOfWays += waysToTop[endOfWindow];
-    console.log(`currentNumberOfWays : ${currentNumberOfWays}`);
-    waysToTop.push(currentNumberOfWays);
-  }
-  console.log(waysToTop[height]);
-  return waysToTop[height];
-}
-staircaseTraversal(height, maxSteps);
+//   for (let currentHeight = 1; currentHeight < height + 1; currentHeight++) {
+//     const startOfWindow = currentHeight - maxSteps - 1;
+//     console.log(`startOfWindow : ${startOfWindow}`);
+//     const endOfWindow = currentHeight - 1;
+//     console.log(`endOfWindow : ${endOfWindow}`);
+//     if (startOfWindow >= 0) {
+//       console.log(`startOfWindow >=0`);
+//       currentNumberOfWays -= waysToTop[startOfWindow];
+//     }
+//     console.log(`startOfWindow < 0`);
+//     currentNumberOfWays += waysToTop[endOfWindow];
+//     console.log(`currentNumberOfWays : ${currentNumberOfWays}`);
+//     waysToTop.push(currentNumberOfWays);
+//   }
+//   console.log(waysToTop[height]);
+//   return waysToTop[height];
+// }
+// staircaseTraversal(height, maxSteps);
 
-///
+// ///
 
-function memoisedFibonacci(n, cache) {
-  cache = cache || [1, 1];
-  if (cache[n]) return cache[n];
-  return (cache[n] =
-    memoisedFibonacci(n - 1, cache) + memoisedFibonacci(n - 2, cache));
-}
+// function memoisedFibonacci(n, cache) {
+//   cache = cache || [1, 1];
+//   if (cache[n]) return cache[n];
+//   return (cache[n] =
+//     memoisedFibonacci(n - 1, cache) + memoisedFibonacci(n - 2, cache));
+// }
 
-///Not dynamic
-var climbStairs = function (height, maxSteps) {
-  let cache = {
-    0: 1,
-    1: 1,
-  };
+// ///Not dynamic
+// var climbStairs = function (height, maxSteps) {
+//   let cache = {
+//     0: 1,
+//     1: 1,
+//   };
 
-  if (height <= 1) return cache[height];
+//   if (height <= 1) return cache[height];
 
-  for (let i = 2; i <= Math.min(height, maxSteps); i++) {
-    cache[i] = cache[i - 1] + cache[i - 2];
-  }
+//   for (let i = 2; i <= Math.min(height, maxSteps); i++) {
+//     cache[i] = cache[i - 1] + cache[i - 2];
+//   }
 
-  return cache[height];
-};
+//   return cache[height];
+// };
+let height = 5;
+let maxSteps = 3;
 
 //dynamic solution without memoization
 function staircaseTraversal(height, maxSteps) {
@@ -74,11 +73,15 @@ function staircaseTraversal(height, maxSteps) {
   let num = 0;
 
   for (let i = 1; i < Math.min(height, maxSteps) + 1; i++) {
+    console.log(`i is : ${i}`);
     num += staircaseTraversal(height - i, maxSteps);
+    console.log(`num is : ${num}`);
   }
 
   return num;
 }
+
+console.log(staircaseTraversal(height, maxSteps));
 // //Height = 5
 // //2 previous amount combine
 
