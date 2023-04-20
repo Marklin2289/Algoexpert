@@ -11,6 +11,7 @@
 // [(]).
 
 let string = "([])(){}(())()()";
+console.log("🚀 ~ file: BalancedBrackets.js:14 ~ string:", string);
 
 //Output = true
 
@@ -31,26 +32,30 @@ function balancedBrackets(string) {
       stack.push("}");
       i++;
     }
-    //   for (let i = 0; i < string.length; i++) {
-    //     if (string[i] == "(") {
-    //       stack.push(")");
-    //     } else if (string[i] == "[") {
-    //       stack.push("]");
-    //     } else if (string[i] == "{") {
-    //       stack.push("}");
-    //       if (string[i] == ")") {
-    //         if (stack.pop() !== string[i]) return false;
-    //       }
-    //       if (string[i] == "}") {
-    //         if (stack.pop() !== string[i]) return false;
-    //       }
-    //       if (string[i] == "]") {
-    //         if (stack.pop() !== string[i]) return false;
-    //       }
-    //       console.log(stack);
-    //     }
-    //     return !stack.length;
-    //   }
+    for (let i = 0; i < string.length; i++) {
+      if (string[i] == "(") {
+        stack.push(")");
+      } else if (string[i] == "[") {
+        stack.push("]");
+      } else if (string[i] == "{") {
+        stack.push("}");
+        if (string[i] == ")") {
+          if (stack.pop() !== string[i]) return false;
+        }
+        if (string[i] == "}") {
+          if (stack.pop() !== string[i]) return false;
+        }
+        if (string[i] == "]") {
+          if (stack.pop() !== string[i]) return false;
+        }
+        console.log(
+          "🚀 ~ file: BalancedBrackets.js:49 ~ balancedBrackets ~ stack:",
+          stack
+        );
+        // console.log(stack);
+      }
+      return !stack.length;
+    }
   }
 }
 console.log(balancedBrackets(string));
