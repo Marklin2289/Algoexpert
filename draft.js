@@ -50,5 +50,7 @@
 // return array;
 // console.log(0 == false);
 // console.log(0 == true);
-let test = new String("abc");
-console.log(test);
+// let test = new String("abc");
+// console.log(test);
+let res = "-7" / "1";
+console.log(res);
